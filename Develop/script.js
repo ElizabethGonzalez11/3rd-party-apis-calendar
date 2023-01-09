@@ -1,18 +1,22 @@
-//date & time
+//make a moment object of the current day and time
+//get numeric value of the current hour
+//do military time
 
-const date = moment().date();
-console.log(date);
+$(function () {
 
-const currentHour = moment().formmat("h:mm");
-const nine = $('#9AM');
-const ten = $('#10AM');
-const eleven = $('#11AM');
-const twelve = $('#12PM');
-const one = $('#1PM');
-const two = $('#2PM');
-const three = $('#3PM');
-const four = $('#4PM');
-const five = $('5PM');
+
+const currentDay = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
+const currentHour = moment().format('h.mm.ss a');
+
+const eight = $('#0800');
+const nine = $('#0900');
+const ten = $('#1000');
+const eleven = $('#1100');
+const twelve = $('#1200');
+const thirteen = $('#1300');
+const fourteen = $('#1400');
+const fifteen = $('#1500');
+const sixteen = $('1600');
 
 let hour = moment().hours();
 let userInput;
@@ -20,17 +24,22 @@ let hourSpan;
 
 let interval = setInterval(function() {
   var momentNow = moment();
-  $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' ' + momentNow.format('').substring(0,3).toUpperCase());
-  $('#currentDay').html(currentDate + " " + momentNow.format('hh:mm A'));
-}, 1000);
+  $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' ' + momentNow.format('dddd').substring(0,3).toUpperCase());
+}, 100);
 
+
+//JSON parse for each item
 function initPage () {
   console.log("current hour" + hour);
+  var init8 = JSON.parse(localStorage.getItems("0800"));
+  eight.val(init9);
+
+  var init9 = JSON
+
 }
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -50,3 +59,6 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+//clear the day
+//function for save btn. 
